@@ -19,6 +19,8 @@ type InputForm = {
   VechicleType: string;
   VechileModleNumber: number;
 }
+let vehiclesTypes: string[] = ["Two Wheeler", "Three Wheeler", "Four Wheeler", "Eight Wheeler"];
+
 
 export default function ServiceDetails() {
   const { control, handleSubmit, formState: { errors } } = useForm<InputForm>({ resolver: yupResolver(serviceSchema),});
@@ -45,14 +47,15 @@ export default function ServiceDetails() {
                 rules={{ required: "This field is required" }}
                 render={({ field }) => (
                   <Select
-                    {...field}
+                    // {...field}
                     label="Vehicle Type"
                   >
-                    <MenuItem value=""><em>None</em></MenuItem>
-                    <MenuItem value="Two Wheeler">Two Wheeler</MenuItem>
-                    <MenuItem value="Three Wheeler">Three Wheeler</MenuItem>
-                    <MenuItem value="Four Wheeler">Four Wheeler</MenuItem>
-                    <MenuItem value="Eight Wheeler">Eight Wheeler</MenuItem>
+                    <MenuItem value="">Select ...</MenuItem>
+                    {
+                      vehiclesTypes.map((vechicles)=>(
+                       <MenuItem value={vechicles}>{vechicles}</MenuItem>
+                      ))
+                    }
                   </Select>
                 )}
               />
