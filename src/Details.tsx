@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -19,7 +19,7 @@ type FormInput = {
 };
 
 const Details: React.FC = () => {
-  const { control, handleSubmit, formState: { errors }, setValue } = useForm<FormInput>({
+  const { control, handleSubmit, formState: { errors } } = useForm<FormInput>({
     resolver: yupResolver(detailsSchema)});
   const navigate = useNavigate();
 
