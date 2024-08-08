@@ -47,7 +47,7 @@ export default function ServiceDetails() {
                 rules={{ required: "This field is required" }}
                 render={({ field }) => (
                   <Select
-                    // {...field}
+                    {...field}
                     label="Vehicle Type"
                   >
                     <MenuItem value="">Select ...</MenuItem>
